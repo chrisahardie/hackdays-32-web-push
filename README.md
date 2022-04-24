@@ -11,7 +11,9 @@ https://github.com/users/chrisahardie/projects/1/views/1
 
 https://github.com/chrisahardie/hackdays-32-web-push/issues
 
-## Web application
+## Solution components
+
+### Web application
 
 **Landing page**
 
@@ -47,7 +49,7 @@ The subscription event will publish subscription details to the API for storage.
 * This page lets an admin send a push notification to all users
 * This page lets an admin send push notifications to a single user
 
-## Web Api
+### Web Api
 
 * Supplies a [VAPID](https://blog.mozilla.org/services/2016/04/04/using-vapid-with-webpush/) public key
 * Accepts subscription details from the web app for storage in a database
@@ -55,7 +57,7 @@ The subscription event will publish subscription details to the API for storage.
 * Returns a list of all users
 * Manages a VAPID private key and public key in a config
 
-## Database
+### Database
 
 * Very simple schema, a single table should suffice
     * id
@@ -67,16 +69,16 @@ The subscription event will publish subscription details to the API for storage.
     * created
     * lastUsed
 
-## SDK
+### SDK
 
 * Abstracts the cloud integration from the client's web app
 * Enqueues messages to Google Cloud Pub/Sub
 * Generates vapid keys
 
-## Google Cloud Pub/Sub
+### Google Cloud Pub/Sub
 
 * Durable queue used to let service components communicate asynchronously
 
-## Serverless function
+### Serverless function
 
 * Reads messages off Google Cloud Pub/Sub, and dispatches them to notification endpoint. (`web-push` is a good NPM library for this if this is a Node function)
