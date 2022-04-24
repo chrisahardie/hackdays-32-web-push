@@ -3,6 +3,8 @@ The Push API enables web apps to receive notifications pushed from a server and 
 
 To leverage this communication channel, this project will stand up a platform that will allow web apps to enqueue notifications via a custom SDK to Google Cloud Pub/Sub (or some other GCP altenative?) for processing. Once processed, the message will be forwarded to the appropriate browser manufacturer's notification platform which will then deliver it to the subscribed browser.
 
+Note on Macs, you may have to explicitly allow Chrome notifications by setting a permission at System Preferences > Notifications.
+
 ## Requirements
 
 https://github.com/users/chrisahardie/projects/1/views/1
