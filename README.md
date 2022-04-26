@@ -15,41 +15,19 @@ https://github.com/chrisahardie/hackdays-32-web-push/issues
 
 ## Solution components
 
+![image](https://user-images.githubusercontent.com/2429373/165323480-a94eebf2-97da-4d59-9843-4eb44ad313da.png)
+
 ### Web application
 
 **Landing page**
 
-* This page lets the user subscribe to notifications via a service worker. Once subscribed, the web app's landing page can be backgrounded, but it will still accept push notifications.
+This page lets the user subscribe to notifications via a service worker. Once subscribed, the web app's landing page can be backgrounded, but it will still accept push notifications.
 
-The subscription event will publish subscription details to the API for storage.  The subscription details will include:
-
-* first name
-* last name
-* [endpoint](https://developer.mozilla.org/en-US/docs/Web/API/PushSubscription/endpoint)
-* [auth](https://web.dev/push-notifications-web-push-protocol/#inputs)
-* [p256dh](https://web.dev/push-notifications-web-push-protocol/#inputs)
-
-* This page lets the user unsubscribe to notifications via its service worker. This will also entail consuming a delete operation to remove the subscription from the database.
+The subscription event will publish subscription details to the API for storage.
 
 **Admin page**
 
-* This page lets an admin configure [push notification settings](https://developer.mozilla.org/en-US/docs/Web/API/Notification/actions):
-    * actions
-    * badge
-    * body
-    * data
-    * dir
-    * icon
-    * image
-    * lang
-    * requireInteraction
-    * silent
-    * tag
-    * title
-    * vibrate
-
-* This page lets an admin send a push notification to all users
-* This page lets an admin send push notifications to a single user
+This page lets an admin configure [push notification settings](https://developer.mozilla.org/en-US/docs/Web/API/Notification/actions). Admins will also be able to send notifications to one user or all users form this screen.
 
 ### Web Api
 
@@ -61,7 +39,7 @@ The subscription event will publish subscription details to the API for storage.
 
 ### Database
 
-* Very simple schema, a single table should suffice
+The DB will have a very simple schema, a single table should suffice for an MVP:
     * id
     * first name
     * last name
@@ -71,7 +49,7 @@ The subscription event will publish subscription details to the API for storage.
     * created
     * lastUsed
 
-### SDK
+### Push Client SDK
 
 * Abstracts the cloud integration from the client's web app
 * Enqueues messages to Google Cloud Pub/Sub
